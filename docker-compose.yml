@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  php:
+    build: ./docker/php
+    container_name: cphp
+    volumes:
+      - ./:/usr/local/nginx/vhosts/laravel.local.com/htdocs
+  mysql:
+    build: ./docker/mysql
+    container_name: cmysql
+    restart: always
+    volumes:
+      - ./:/usr/local/nginx/vhosts/laravel.local.com/htdocs
+      - ./script:/docker-entrypoint-initdb.d
+    ports:
+      - "3305:3306"
+  nginx:
+    container_name: cnginx
+    build: ./docker/nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./:/usr/local/nginx/vhosts/laravel.local.com/htdocs
