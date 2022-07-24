@@ -13,7 +13,7 @@ services:
       - ./:/usr/local/nginx/vhosts/laravel.local.com/htdocs
       - ./script:/docker-entrypoint-initdb.d
     ports:
-      - "3305:3306"
+      - 3305:3306
   nginx:
     container_name: cnginx
     build: ./docker/nginx
