@@ -1,4 +1,4 @@
-# docker-laravel[v2]
+# docker-laravel
 ## construction
 ### install
     git clone リポジトリ
